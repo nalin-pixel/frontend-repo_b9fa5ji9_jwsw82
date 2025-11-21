@@ -26,8 +26,18 @@ function Work() {
         <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="text-4xl font-bold text-white mb-10">Selected Work</motion.h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {works.map((w, i) => (
-            <motion.div key={w.title} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5">
-              <img src={w.image} alt={w.title} className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <motion.div
+              key={w.title}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
+              className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5"
+              whileHover={{ y: -4 }}
+            >
+              <div className="relative">
+                <img src={w.image} alt={w.title} className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(600px_circle_at_var(--x,50%)_var(--y,50%),rgba(255,255,255,0.15),transparent_40%)]" />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
               <div className="absolute bottom-0 p-4">
                 <h3 className="text-white font-semibold text-lg">{w.title}</h3>

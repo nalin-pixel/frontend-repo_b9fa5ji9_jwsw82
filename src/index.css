@@ -18,7 +18,7 @@
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased bg-slate-950;
   }
 }
 
@@ -43,4 +43,64 @@
     --tw-exit-translate-x: initial;
     --tw-exit-translate-y: initial;
   }
+
+  /* Floating aurora blobs */
+  .blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(40px);
+    animation: float-blob 18s ease-in-out infinite;
+  }
+
+  .aurora {
+    position: absolute;
+    filter: blur(60px);
+    opacity: 0.55;
+    animation: drift 26s linear infinite;
+  }
 }
+
+/* Keyframes */
+@keyframes animateIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes animateOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes float-blob {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10px, -20px) scale(1.05); }
+  66% { transform: translate(-6px, 14px) scale(0.98); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes drift {
+  0% { transform: translate3d(0,0,0) rotate(0deg); }
+  50% { transform: translate3d(2%, -1%, 0) rotate(180deg); }
+  100% { transform: translate3d(0,0,0) rotate(360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(0.9); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+/* Spotlight hover utility */
+.spotlight {
+  position: relative;
+}
+.spotlight:before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 1.25rem; /* match rounded-2xl */
+  background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.2), transparent 40%);
+  transition: opacity 250ms ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.spotlight:hover:before { opacity: 1; }

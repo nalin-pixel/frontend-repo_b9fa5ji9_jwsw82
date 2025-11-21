@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 
 function Hero() {
   return (
-    <section className="relative pt-28 pb-20 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(236,72,153,0.25),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.2),transparent_40%),radial-gradient(circle_at_50%_80%,rgba(250,204,21,0.2),transparent_40%)]" />
-      <div className="absolute -top-40 -right-40 w-[40rem] h-[40rem] bg-fuchsia-500/30 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 w-[40rem] h-[40rem] bg-amber-400/30 rounded-full blur-3xl" />
+    <section className="relative pt-28 pb-24 overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(236,72,153,0.18),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.15),transparent_40%),radial-gradient(circle_at_50%_80%,rgba(250,204,21,0.18),transparent_40%)]" />
+        <div className="blob bg-fuchsia-500/30 -top-40 -right-24 w-[44rem] h-[44rem]" />
+        <div className="blob bg-amber-400/25 -bottom-32 -left-24 w-[38rem] h-[38rem]" />
+      </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -31,10 +33,18 @@ function Hero() {
                 Journey
               </Link>
             </div>
+
+            <motion.div className="mt-10 flex items-center gap-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.15 }}>
+              {["Pop", "Indie", "Live"].map((chip, i) => (
+                <motion.span key={chip} initial={{ y: 6, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 + i * 0.05 }} className="px-3 py-1 rounded-full text-sm bg-white/10 border border-white/10 text-white/80">
+                  {chip}
+                </motion.span>
+              ))}
+            </motion.div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="relative">
-            <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl spotlight">
               <div className="absolute inset-0 bg-gradient-to-tr from-fuchsia-500/40 via-transparent to-amber-400/30 mix-blend-overlay" />
               <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1600&auto=format&fit=crop" alt="Yash performing" className="w-full h-full object-cover" />
             </div>

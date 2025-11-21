@@ -15,6 +15,7 @@ function About() {
           <motion.ul initial="hidden" whileInView="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }} className="grid gap-4">
             {["Vocals", "Songwriting", "Live Performance", "Sound Design"].map((item) => (
               <motion.li key={item} variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }} className="flex items-center gap-3 bg-gradient-to-br from-fuchsia-500/20 to-amber-400/20 border border-white/10 rounded-xl p-4 text-white">
+                <span className="w-2 h-2 rounded-full bg-gradient-to-br from-fuchsia-400 to-amber-300 shadow-[0_0_20px_rgba(236,72,153,0.6)]" />
                 <span className="font-semibold">{item}</span>
               </motion.li>
             ))}

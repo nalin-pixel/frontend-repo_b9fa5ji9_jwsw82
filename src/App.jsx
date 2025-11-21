@@ -4,10 +4,12 @@ import About from './components/About'
 import Work from './components/Work'
 import Timeline from './components/Timeline'
 import Contact from './components/Contact'
+import BackgroundFX from './components/BackgroundFX'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen text-white">
+      <BackgroundFX />
       <Navbar />
       <main>
         <Hero />

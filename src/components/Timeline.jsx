@@ -24,14 +24,14 @@ function Timeline() {
                 className={`relative sm:grid sm:grid-cols-2 gap-8 items-center`}
               >
                 <div className={`sm:justify-self-end ${idx % 2 === 0 ? 'order-none' : 'sm:order-2'}`}>
-                  <div className="inline-flex items-center gap-3 bg-white/10 border border-white/10 px-4 py-2 rounded-xl text-white backdrop-blur">
+                  <motion.div className="inline-flex items-center gap-3 bg-white/10 border border-white/10 px-4 py-2 rounded-xl text-white backdrop-blur" whileHover={{ scale: 1.03 }}>
                     <span className="text-2xl font-bold">{e.year}</span>
-                  </div>
+                  </motion.div>
                 </div>
-                <div className={`bg-white/5 border border-white/10 rounded-2xl p-6 text-white ${idx % 2 === 0 ? '' : 'sm:order-1'}`}>
+                <motion.div className={`bg-white/5 border border-white/10 rounded-2xl p-6 text-white ${idx % 2 === 0 ? '' : 'sm:order-1'}`} whileHover={{ y: -2 }}>
                   <h3 className="text-xl font-semibold mb-1">{e.title}</h3>
                   <p className="text-white/80">{e.desc}</p>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
